@@ -1,0 +1,95 @@
+# =========================
+# DEPENDENCIAS
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# BUILD / PRODUCCIÓN
+# =========================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+coverage/
+**/dist/
+**/build/
+**/out/
+
+# =========================
+# LOGS
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# VARIABLES DE ENTORNO
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env*
+
+# =========================
+# CONFIGURACIONES LOCALES
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# SISTEMA OPERATIVO
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# ARCHIVOS TEMPORALES
+# =========================
+tmp/
+temp/
+*.tmp
+*.cache
+
+# =========================
+# PACKAGE MANAGERS
+# =========================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ⚠️ OJO:
+# Si trabajas en equipo, tal vez quieras versionar los lockfiles.
+# Si estás solo o aprendiendo, puedes ignorarlos.
+
+# =========================
+# TESTING
+# =========================
+coverage/
+.nyc_output/
+
+# =========================
+# TYPESCRIPT
+# =========================
+*.tsbuildinfo
+
+# =========================
+# DOCKER (si usas)
+# =========================
+docker-compose.override.yml
+
+# =========================
+# OTROS
+# =========================
+*.bak
+*.old
+*.orig
