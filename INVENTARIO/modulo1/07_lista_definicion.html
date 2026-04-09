@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definiciones y Estructura de inventario</title>
+</head>
+<body>
+    <h1>Glosario de inventario</h1>
+    <dl>
+        <dt>SKU (Stock Keeping Unit)</dt>
+        <dd>Codigo unico asignado a un producto para poder rastrear su inventario</dd>
+        <dt>Stock Minimo</dt>
+        <dd>La cantidad mas baja de un producto que se debe tener antes de realizar un nuevo pedido.</dd>
+
+       <dt>Mermas</dt>
+        <dd>Pérdida de productos debido a daños, errores de conteo o caducidad.</dd>
+    </dl>
+
+    <hr>
+
+    <h1>Estructura de Almacenamiento (Anidada)</h1>
+    <ol type="1">
+        <li><strong>Pasillo A (Electrónicos)</strong>
+            <ol type="a">
+                <li>Estante A-1
+                    <ul>
+                        <li>Nivel Superior: Laptops</li>
+                        <li>Nivel Medio: Tablets</li>
+                        <li>Nivel Inferior: Teclados</li>
+                    </ul>
+                </li>
+                <li>Estante A-2
+                    <ul>
+                        <li>Monitores 24"</li>
+                        <li>Monitores 27"</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li><strong>Pasillo B (Periféricos)</strong>
+            <ol type="a">
+                <li>Estante B-1
+                    <ul>
+                        <li>Cables HDMI</li>
+                        <li>Adaptadores USB-C</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+</body>
+</html>
