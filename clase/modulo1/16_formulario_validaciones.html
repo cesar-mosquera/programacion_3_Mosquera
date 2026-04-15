@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>enlaces</title>
+    </head>
+    <body>
+        <h1>formulario con validacion</h1>
+        <form action="/procesar" method="post">
+          <fieldset>
+            <legend>campo obligatorio</legend>
+            <label for="nombre">Nombre</label><br>
+            <input type="text" id="nombre" name="nombre" required>
+
+
+          </fieldset>
+          <fieldset>
+        <legend> Minlength / Maxlength</legend>
+        <label for="apellido">Apellido</label><br>
+        <input type="text" id="apellido" name="apellido" minlength="18" maxlength="99">
+    </fieldset>
+    <fieldset>
+        <legend> patrón de caracteres - expresión regular</legend>
+        <label for="codigo_postal">Código postal</label><br>
+        <input type="email" id="codigo_postal" name="codigo_postal" pattern="[0-9]{5}">
+    </fieldset>
+    <fieldset>
+        <legend> min / max rango para números </legend>
+        <label for="edad">edad</label><br>
+        <input type="number" id="edad" name="edad" min="18" max="99">
+    </fieldset>
+    <fieldset>
+        <legend> Deshabilitado</legend>
+        <label for="ref">Referencia</label><br>
+        <input type="text" id="ref" name="pais" value="REF-001" disabled>
+    </fieldset>
+    <fieldset>
+        <legend> Solo lectura</legend>
+        <label for="pais">Pais</label><br>
+        <input type="text" id="pais" name="pais" value="Ecuador" readonly>
+    </fieldset>
+
+    <button type="submit">Crear cuenta</button>
+    </form>
+
+
+    
+      
+    </body>
+</html>
