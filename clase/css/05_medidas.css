@@ -1,0 +1,13 @@
+.producto-card {
+    border: 1px solid #e0e0e0;  /* px: ideal para bordes */
+    border-radius: 8px;
+}
+
+.producto-card {
+    font-size: 16px;
+}
+
+.producto-card .producto-nombre {
+    font-size: 1.25em; /* 1.25 x 16px = 20px */
+    padding: 0.5em;    /* 0.5 x 16px = 8px */
+}
