@@ -1,0 +1,42 @@
+/* Por defecto son block: div, p, h1-h6, section */
+.banner-oferta {
+    display: block;
+    width: 100%;
+    background-color: #e63946;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Por defecto son inline: span, a, strong, etc */
+.etiqueta-nuevo {
+    display: inline;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.btn-carrito {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.menu-movil {
+    display: none;
+    background-color: chartreuse;
+    padding: 10px;
+
+}
+
+.menu-movil.activo {
+    display: block;
+    
+}
