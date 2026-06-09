@@ -7,11 +7,37 @@
 <body>
     <header>
         <h1>Gestión de Inventario</h1>
+        <nav>
+            <a href="#registro">Registrar</a>
+            <a href="#productos">Inventario</a>
+        </nav>
     </header>
     <main>
+        <section id="registro">
+            <h2>Registrar Producto</h2>
+            <form id="form-producto">
+                <label>Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label>Precio:</label>
+                <input type="number" id="precio" required>
+                <label>Cantidad:</label>
+                <input type="number" id="cantidad" required>
+                <button type="submit">Guardar</button>
+            </form>
+        </section>
         <section id="productos">
-            <h2>Lista de Productos</h2>
-            <!-- Tabla de productos -->
+            <h2>Stock Actual</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                </tbody>
+            </table>
         </section>
     </main>
 </body>
