@@ -15,3 +15,12 @@ function validarProducto(nombre, precio, cantidad) {
     }
     return true;
 }
+
+function calcularTotalInventario() {
+    let total = 0;
+    for (let i = 0; i < inventario.length; i++) {
+        total += inventario[i].precio * inventario[i].cantidad;
+    }
+    console.log("Total del inventario: $" + total);
+    return total;
+}
