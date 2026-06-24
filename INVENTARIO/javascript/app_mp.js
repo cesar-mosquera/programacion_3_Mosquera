@@ -24,3 +24,20 @@ function calcularTotalInventario() {
     console.log("Total del inventario: $" + total);
     return total;
 }
+
+function agregarProducto(nombre, precio, cantidad) {
+    if (validarProducto(nombre, precio, cantidad)) {
+        inventario.push({ nombre, precio, cantidad });
+        actualizarTabla();
+    }
+}
+
+function actualizarTabla() {
+    const tbody = document.getElementById('tabla-body');
+    if(tbody) {
+        tbody.innerHTML = '';
+        inventario.forEach(prod => {
+            tbody.innerHTML += <tr><td>\</td><td>\</td><td>\</td></tr>;
+        });
+    }
+}
