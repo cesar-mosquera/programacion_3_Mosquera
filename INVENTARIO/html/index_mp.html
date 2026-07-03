@@ -1,46 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="../css/styles_mp.css">
     <meta charset="UTF-8">
-    <title>Sistema de Inventario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inventario Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles_mp.css">
 </head>
 <body>
-    <header>
-        <h1>Gestión de Inventario</h1>
-        <nav>
-            <a href="#registro">Registrar</a>
-            <a href="#productos">Inventario</a>
-        </nav>
+    <header class="header-main">
+        <div class="header-content">
+            <h1>Gestión de Inventario</h1>
+            <nav class="nav-main">
+                <span class="nav-date" id="fecha-actual"></span>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section id="registro">
-            <h2>Registrar Producto</h2>
-            <form id="form-producto">
-                <label>Nombre:</label>
-                <input type="text" id="nombre" required>
-                <label>Precio:</label>
-                <input type="number" id="precio" required>
-                <label>Cantidad:</label>
-                <input type="number" id="cantidad" required>
-                <button type="submit">Guardar</button>
-            </form>
+
+    <main class="dashboard-container">
+        <!-- Barra de Acciones Superior -->
+        <section class="action-bar">
+            <button id="btn-abrir-registro" class="btn-action btn-primary">
+                <span class="icon">➕</span> Registrar Nuevo Producto
+            </button>
+            <button id="btn-abrir-movimientos" class="btn-action btn-secondary">
+                <span class="icon">📦</span> Gestión de Movimientos
+            </button>
         </section>
-        <section id="productos">
-            <h2>Stock Actual</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-body">
-                </tbody>
-            </table>
+
+        <!-- Panel Principal: Tabla de Stock (Ancho Completo) -->
+        <section id="productos" class="card table-card full-width">
+            <div class="card-header flex-header">
+                <div>
+                    <h2>Inventario Consolidado</h2>
+                    <p>Vista de panel completo en tiempo real.</p>
+                </div>
+                <div class="stat-badge">
+                    <span>Capital Total: </span>
+                    <strong id="total-inventario">$0.00</strong>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Producto</th>
+                            <th>Tipo</th>
+                            <th>Precio Unit.</th>
+                            <th>Stock Disponible</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-body">
+                        <!-- Las filas se insertarán dinámicamente -->
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: var(--text-muted);">Sin productos registrados en el sistema.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
+
+    <!-- Modal: Registrar Producto -->
+    <div id="modal-registro" class="modal-overlay oculto">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Registrar Producto</h2>
+                <button class="btn-cerrar" id="btn-cerrar-registro">&times;</button>
+            </div>
+            <form id="form-producto" class="modern-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Producto</label>
+                    <input type="text" id="nombre" placeholder="Ej. Laptop HP Envy" required>
+                </div>
+                
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="precio">Precio ($)</label>
+                        <input type="number" id="precio" placeholder="0.00" step="0.01" min="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Stock Inicial</label>
+                        <input type="number" id="cantidad" placeholder="0" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo de Producto</label>
+                    <select id="tipo" required>
+                        <option value="fisico">Físico (Electrónico/Hardware)</option>
+                        <option value="digital">Digital (Software/Licencia)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Guardar Producto</button>
+                <div id="form-mensaje" class="mensaje-alerta oculto"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Gestión de Movimientos -->
+    <div id="modal-movimientos" class="modal-overlay oculto">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Gestión de Movimientos</h2>
+                <button class="btn-cerrar" id="btn-cerrar-movimientos">&times;</button>
+            </div>
+            <form id="form-movimiento" class="modern-form">
+                <div class="form-group">
+                    <label for="producto-select">Seleccionar Producto</label>
+                    <select id="producto-select" required>
+                        <option value="" disabled selected>-- Elige un producto --</option>
+                        <!-- Llenado dinámicamente con JS -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cantidad-mov">Cantidad</label>
+                    <input type="number" id="cantidad-mov" placeholder="0" min="1" required>
+                </div>
+
+                <div class="form-group-row">
+                    <button type="button" id="btn-vender" class="btn-danger flex-btn">Vender</button>
+                    <button type="button" id="btn-abastecer" class="btn-success flex-btn">Abastecer</button>
+                </div>
+                <div id="movimiento-mensaje" class="mensaje-alerta oculto"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Editar Producto -->
+    <div id="modal-editar" class="modal-overlay oculto">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>Editar Producto</h2>
+                <button class="btn-cerrar" id="btn-cerrar-editar">&times;</button>
+            </div>
+            <form id="form-editar" class="modern-form">
+                <input type="hidden" id="edit-id">
+                
+                <div class="form-group">
+                    <label for="edit-nombre">Nombre del Producto</label>
+                    <input type="text" id="edit-nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-precio">Precio ($)</label>
+                    <input type="number" id="edit-precio" step="0.01" min="0.01" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Guardar Cambios</button>
+                <div id="edit-mensaje" class="mensaje-alerta oculto"></div>
+            </form>
+        </div>
+    </div>
+
     <script src="../javascript/app_mp.js"></script>
 </body>
 </html>
