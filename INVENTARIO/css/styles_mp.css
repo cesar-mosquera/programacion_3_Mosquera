@@ -202,6 +202,10 @@ body {
     border-top: 5px solid var(--primary-color);
 }
 
+.modal-lg {
+    max-width: 800px;
+}
+
 .modal-overlay.activo .modal-content {
     transform: translateY(0) scale(1);
 }
@@ -476,4 +480,36 @@ input:focus, select:focus {
 }
 .btn-icon.icon-delete:hover {
     background-color: #fef2f2;
+}
+
+/* Badges para el Historial */
+.badge-historial {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+.badge-historial.registro {
+    background-color: #e0f2fe;
+    color: #0284c7;
+    border-color: #bae6fd;
+}
+.badge-historial.edicion {
+    background-color: #fef3c7;
+    color: #d97706;
+    border-color: #fde68a;
+}
+.badge-historial.venta {
+    background-color: #fce7f3;
+    color: #be185d;
+    border-color: #fbcfe8;
+}
+.badge-historial.abastecimiento {
+    background-color: #d1fae5;
+    color: #059669;
+    border-color: #a7f3d0;
+}
+.badge-historial.eliminacion {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecaca;
 }
