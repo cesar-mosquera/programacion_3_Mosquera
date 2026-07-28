@@ -1,1 +1,86 @@
-# Programacion Rama principal.
+# Programación 3 — Segundo Corte
+
+## Resumen general
+
+Este README resume el trabajo del segundo corte, donde empezamos desde cero con HTML y CSS, pasamos por JavaScript y TypeScript, y llegamos hasta construir un sistema completo de inventario con NestJS y React. Arrancamos sin saber nada de maquetado web y terminamos armando una API con autenticación JWT, base de datos PostgreSQL y un frontend moderno con React 19.
+
+## Módulo 1 — HTML y CSS
+
+Arrancamos con lo más básico de HTML: estructura de documento, encabezados, párrafos, listas, tablas, formularios con validación y elementos semánticos como `<header>`, `<article>`, `<nav>` y `<section>`. También vimos cómo incrustar video y audio.
+
+En CSS aprendimos desde los selectores básicos hasta Flexbox. Pasamos por el modelo de caja (margin, border, padding), unidades de medida, tipografía y propiedades de display. Los ejercicios de Flexbox con `justify-content`, `align-items` y `flex-wrap` fueron clave para empezar a maquetar bien.
+
+## Módulo 2 — JavaScript y TypeScript
+
+En JavaScript vimos desde la sintaxis básica (variables, tipos, operadores) hasta estructuras de control, ciclos, funciones, arreglos y objetos. También repasamos la diferencia entre igualdad estricta y débil, y el operador ternario.
+
+Con TypeScript dimos el salto a la programación tipada: tipos básicos, interfaces, funciones con parámetros y retornos tipados, y los pilares de la programación orientada a objetos: clases, abstracción, encapsulamiento, herencia y polimorfismo.
+
+## Módulo 3 — DOM y NestJS
+
+### Manipulación del DOM
+Aprendimos a seleccionar y modificar elementos del DOM, manejar eventos (click, input, mouse, touch), y construir aplicaciones prácticas como una lista de tareas, calculadoras, un CRUD de productos, calculadora de sueldo y un sistema de calificaciones.
+
+### Blog Backend con NestJS
+Armamos un backend completo con NestJS 11, TypeORM y PostgreSQL. El sistema tiene:
+
+- **Autenticación**: JWT y Google OAuth con Passport
+- **Gestión de usuarios**: CRUD completo con DTOs y validación
+- **Posts y categorías**: CRUD con paginación
+- **Cursos**: módulo con Mongoose (MongoDB)
+- **Correo**: envío de emails con Nodemailer
+- **Pruebas**: tests con Jest
+
+## Módulo 4 — React 19
+
+Aquí fue donde más avanzamos. Todos los proyectos usan React 19, TypeScript y Vite 8. Vimos los hooks fundamentales:
+
+- **useEffect**: 8 ejemplos incluyendo debounce, fetch con cancelación y auto-focus
+- **useRef**: auto-focus, cronómetro, editor inline y seguimiento de valores anteriores
+- **useReducer**: contador, formulario con validación y carrito de compras
+- **useContext**: tema oscuro/claro, badge de usuario, múltiples contextos simultáneos
+- **useMemo y useCallback**: filtros, búsquedas, paginación y custom hooks
+
+También exploramos **React Router** (rutas anidadas, layouts, lazy loading, rutas protegidas) y varios estilos de UI: **styled-components**, CSS Modules, y librerías como **Material UI**, **Ant Design**, **React-Bootstrap** y **Tailwind CSS con shadcn/ui**.
+
+El proyecto más completo fue **blogapp-react**, un frontend full-stack con Zustand para estado global, React Hook Form + Zod para validación, shadcn/ui y Tailwind.
+
+## Proyecto final — Inventario
+
+Cerramos el corte con un sistema de inventario completo. El **backend** usa NestJS 11 con TypeORM y PostgreSQL, con autenticación JWT, CRUD de productos y transacciones. El **frontend** usa React 19 con Vite, React Router v7 con rutas protegidas, contextos de autenticación y tema, y Zod para validación de formularios.
+
+## Cómo levantar el proyecto
+
+Necesitas Node.js y una instancia de PostgreSQL corriendo (local o en Docker).
+
+### Backend (`INVENTARIO/backend`)
+
+```bash
+cd INVENTARIO/backend
+cp .env.example .env    # ajusta DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE si hace falta
+npm install
+npm run start:dev
+```
+
+Queda escuchando en `http://localhost:3000`. Con `DB_SYNC=true` en el `.env`, TypeORM crea las tablas automáticamente la primera vez.
+
+### Frontend (`INVENTARIO/frontend`)
+
+```bash
+cd INVENTARIO/frontend
+cp .env.example .env    # VITE_API_URL debe apuntar al backend (http://localhost:3000)
+npm install
+npm run dev
+```
+
+Queda escuchando en `http://localhost:5173`. Primero regístrate desde `/register` o inicia sesión si ya tienes una cuenta.
+
+## En resumen
+
+| Módulo | Temas principales |
+|--------|------------------|
+| 1 | HTML5 semántico, CSS3, Flexbox |
+| 2 | JavaScript, TypeScript, POO |
+| 3 | DOM, NestJS 11, TypeORM, PostgreSQL, MongoDB, JWT |
+| 4 | React 19, hooks, React Router, UI libraries, Zustand |
+| Inventario | Full-stack: NestJS + PostgreSQL + React 19 + JWT |
