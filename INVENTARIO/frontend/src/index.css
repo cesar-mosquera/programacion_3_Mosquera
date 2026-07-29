@@ -1,0 +1,109 @@
+:root {
+  --primary: #0891b2;
+  --primary-hover: #0e7490;
+  --primary-glow: #0891b259;
+  --secondary: #0f172a;
+  --secondary-hover: #1e293b;
+  --bg: #f1f5f9;
+  --card-bg: #fff;
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  --border: #cbd5e1;
+  --success: #65a30d;
+  --success-hover: #4d7c0f;
+  --success-glow: #65a30d59;
+  --danger: #e11d48;
+  --danger-hover: #be123c;
+  --danger-glow: #e11d4859;
+  --accent2: #d946ef;
+  --shadow-sm: 0 1px 3px #0000001a;
+  --shadow-md: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d;
+  --shadow-lg: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --header-bg: #0f172a;
+  --input-bg: #f8fafc;
+  --input-bg-focus: #fff;
+  --overlay: #0f172a99;
+}
+
+[data-theme=dark] {
+  --primary: #22d3ee;
+  --primary-hover: #67e8f9;
+  --primary-glow: #22d3ee73;
+  --secondary: #e2e8f0;
+  --secondary-hover: #f1f5f9;
+  --bg: #030712;
+  --card-bg: #0b1120;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-light: #64748b;
+  --border: #1e293b;
+  --success: #a3e635;
+  --success-hover: #bef264;
+  --success-glow: #a3e63573;
+  --danger: #fb7185;
+  --danger-hover: #fda4af;
+  --danger-glow: #fb718573;
+  --accent2: #f472b6;
+  --shadow-sm: 0 1px 3px #00000080;
+  --shadow-md: 0 10px 15px -3px #00000080, 0 4px 6px -2px #0006;
+  --shadow-lg: 0 20px 25px -5px #0009, 0 10px 10px -5px #0006;
+  --header-bg: #000;
+  --input-bg: #0b1120;
+  --input-bg-focus: #111827;
+  --overlay: #000c;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { overflow-x: hidden; }
+
+body {
+  color: var(--text-main);
+  background: var(--bg);
+  background-image: linear-gradient(135deg, var(--bg) 0%, var(--card-bg) 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.25s, color 0.25s;
+  overflow-x: hidden;
+}
+
+input, select, textarea { color: var(--text-main); }
+
+::selection { background: var(--primary); color: #fff; }
+
+button { font-family: inherit; }
+
+a { color: inherit; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+@keyframes fadeInRow {
+  0% { opacity: 0; background-color: #dbeafe; transform: translateX(-15px); }
+  100% { opacity: 1; background-color: transparent; transform: translateX(0); }
+}
+
+@keyframes toastIn {
+  0% { opacity: 0; transform: translateX(100%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes modalOverlayIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes modalContentIn {
+  0% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media print {
+  header, .no-print { display: none !important; }
+  body { background: #fff !important; }
+}
